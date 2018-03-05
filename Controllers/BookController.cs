@@ -11,12 +11,12 @@ namespace webdev.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var book = new Book
+            var books = new List<Book>
             {
-                Title = "Lód",
-                Author = "Jacek Dukaj"
+                new Book { Title = "Lód", Author = "Jacek Dukaj" },
+                new Book { Title = "Valis", Author = "Philip K. Dick" }
             };
-            return View(book);
+            return View(books);
         }
     }
 }

@@ -1,5 +1,13 @@
-@model webdev.Models.Book
+@model List<webdev.Models.Book>
 <div>
-    <strong>Title:</strong> @Html.DisplayFor(model => model.Title) <br />
-    <strong>Author:</strong> @Html.DisplayFor(model => model.Author)
+    <table>
+        @foreach(var item in Model) {
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => item.Title):</strong></td>
+                <td>@Html.DisplayFor(model => item.Title),</td>
+                <td><strong>@Html.DisplayNameFor(model => item.Author):</strong></td>
+                <td>@Html.DisplayFor(model => item.Author)</td>
+            </tr>
+        }
+    </table>
 </div>
