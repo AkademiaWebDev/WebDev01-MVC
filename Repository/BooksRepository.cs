@@ -5,7 +5,7 @@ namespace webdev.Repository
 {
     public class BooksRepository
     {
-        public static List<Book> _books = _books = new List<Book>
+        public static List<Book> _books = new List<Book>
         {
             new Book { Title = "Lód", Author = "Jacek Dukaj" },
             new Book { Title = "Valis", Author = "Philip K. Dick" }
