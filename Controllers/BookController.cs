@@ -6,17 +6,28 @@ namespace webdev.Controllers
 {
     public class BookController : Controller
     {
-        public BookController() { }
-
-        [HttpGet]
-        public IActionResult Index()
+        private List<Book> _books;
+        
+        public BookController()
         {
-            var books = new List<Book>
+            _books = new List<Book>
             {
                 new Book { Title = "Lód", Author = "Jacek Dukaj" },
                 new Book { Title = "Valis", Author = "Philip K. Dick" }
             };
-            return View(books);
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View(_books);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Book book)
+        {
+            _books.Add(book);
+            return Redirect("Index");
         }
     }
 }

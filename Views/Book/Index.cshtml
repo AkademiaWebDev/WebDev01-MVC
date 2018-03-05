@@ -1,5 +1,13 @@
 @model List<webdev.Models.Book>
 <div>
+    @using (Html.BeginForm("Create", "Book", FormMethod.Post))
+    {
+        <input type="text" name="Author" placeholder="Author"/> <br/>
+        <input type="text" name="Title" placeholder="Title"/> <br/>
+        <button type="submit">Add</button>
+    }
+</div>  
+<div>
     <table>
         @foreach(var item in Model) {
             <tr>
