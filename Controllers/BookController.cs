@@ -9,9 +9,9 @@ namespace webdev.Controllers
     {
         private BooksRepository _repository;
         
-        public BookController()
+        public BookController(BooksRepository booksRepository)
         {
-            _repository = new BooksRepository();
+            _repository = booksRepository;
         }
 
         [HttpGet]
