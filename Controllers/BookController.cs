@@ -27,5 +27,12 @@ namespace webdev.Controllers
             _repository.AddBook(book);
             return Redirect("Index");
         }
+
+        [HttpGet]
+        public IActionResult Delete(Book book)
+        {
+            _repository.Delete(book);
+            return Redirect("Index");
+        }
     }
 }

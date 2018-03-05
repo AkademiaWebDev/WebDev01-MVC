@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using webdev.Models;
 
 namespace webdev.Repository
@@ -19,6 +20,13 @@ namespace webdev.Repository
         public List<Book> GetBooks() 
         {
             return _books;
+        }
+
+        public void Delete(Book book) 
+        {
+            var bookToDelete = _books
+                .SingleOrDefault(element => element.Author == book.Author && element.Title == book.Title);
+            _books.Remove(bookToDelete);
         }
     }
 }
