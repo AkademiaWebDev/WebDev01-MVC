@@ -16,6 +16,7 @@
                 <td><strong>@Html.DisplayNameFor(model => item.Author):</strong></td>
                 <td>@Html.DisplayFor(model => item.Author)</td>
                 <td>| @Html.ActionLink("Delete", "Delete", "Book", item)</td>
+                <td>| @Html.ActionLink("Edit", "Edit", "Book", item)</td>
             </tr>
         }
     </table>

@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using webdev.Interfaces;
 using webdev.Models;
-using webdev.Repository;
 
 namespace webdev.Controllers
 {
     public class BookController : Controller
     {
-        private BooksRepository _repository;
+        private IRepository _repository;
         
-        public BookController(BooksRepository booksRepository)
+        public BookController(IRepository booksRepository)
         {
             _repository = booksRepository;
         }
@@ -32,6 +32,19 @@ namespace webdev.Controllers
         public IActionResult Delete(Book book)
         {
             _repository.Delete(book);
+            return Redirect("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(Book book) 
+        {
+            return View(book);
+        }
+        
+        [HttpPost]
+        public IActionResult Update(Book book) 
+        {
+            _repository.Update(book);
             return Redirect("Index");
         }
     }

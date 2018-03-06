@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using webdev.Interfaces;
 using webdev.Models;
 
 namespace webdev.Repository
 {
-    public class BooksRepository
+    public class BooksRepository : IRepository
     {
-        public static List<Book> _books = _books = new List<Book>
+        public static List<Book> _books = new List<Book>
         {
             new Book { Title = "Lód", Author = "Jacek Dukaj" },
             new Book { Title = "Valis", Author = "Philip K. Dick" }
@@ -14,6 +15,7 @@ namespace webdev.Repository
 
         public void AddBook(Book book) 
         {
+            book.Id = _books.Count;
             _books.Add(book);
         }
 
@@ -27,6 +29,13 @@ namespace webdev.Repository
             var bookToDelete = _books
                 .SingleOrDefault(element => element.Author == book.Author && element.Title == book.Title);
             _books.Remove(bookToDelete);
+        }
+
+        public void Update(Book book) 
+        {
+            var bookToUpdateIndex = _books.FindIndex(element => element.Id == book.Id);
+            if(bookToUpdateIndex != -1) 
+                _books[bookToUpdateIndex] = book;
         }
     }
 }
