@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using webdev.Interfaces;
+using webdev.Repository;
 
 namespace webdev
 {
@@ -21,6 +23,7 @@ namespace webdev
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IRepository, BooksRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
