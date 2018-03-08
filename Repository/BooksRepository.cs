@@ -5,7 +5,7 @@ using webdev.Models;
 
 namespace webdev.Repository
 {
-    public class BooksRepository : IRepository
+    public class BooksRepository : IBooksRepository
     {
         public static List<Book> _books = new List<Book>
         {
