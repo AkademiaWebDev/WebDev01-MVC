@@ -23,7 +23,7 @@ namespace webdev
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<IRepository, BooksRepository>();
+            services.AddTransient<IBooksRepository, BooksRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
