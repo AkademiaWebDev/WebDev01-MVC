@@ -3,7 +3,7 @@ using webdev.Models;
 
 namespace webdev.Interfaces
 {
-    public interface IRepository
+    public interface IBooksRepository
     {
          List<Book> GetBooks();
          void AddBook(Book book);

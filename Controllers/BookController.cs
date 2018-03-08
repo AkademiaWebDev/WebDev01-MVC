@@ -8,9 +8,9 @@ namespace webdev.Controllers
 {
     public class BookController : Controller
     {
-        private IRepository _repository;
+        private IBooksRepository _repository;
         
-        public BookController(IRepository booksRepository)
+        public BookController(IBooksRepository booksRepository)
         {
             _repository = booksRepository;
         }
