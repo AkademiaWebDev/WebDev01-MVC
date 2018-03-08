@@ -23,7 +23,7 @@ namespace webdev
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IRepository, BooksRepository>();
+            services.AddSingleton<IBooksRepository, BooksRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
